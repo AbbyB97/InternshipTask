@@ -1,13 +1,11 @@
 package youthvine.internshiptask;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -26,8 +24,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.wang.avi.AVLoadingIndicatorView;
 
-import java.util.regex.Matcher;
-
 
 public class Sign_In extends AppCompatActivity {
     SignInButton button;
@@ -39,8 +35,7 @@ public class Sign_In extends AppCompatActivity {
     AVLoadingIndicatorView av;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign__in);
 
@@ -76,7 +71,7 @@ public class Sign_In extends AppCompatActivity {
                 user_email_str = reg_email.getText().toString();
                 user_password_str = reg_password.getText().toString();
 
-            //user registration using email and password
+                //user registration using email and password
                 //email and password registration code without email verification
                 /*
                 boolean isemailvalid = android.util.Patterns.EMAIL_ADDRESS.matcher(user_email_str).matches();
@@ -125,7 +120,7 @@ public class Sign_In extends AppCompatActivity {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d("usercreated", "createUserWithEmail:success");
                                     FirebaseUser user = mAuth.getCurrentUser();
-                                    Toast.makeText(Sign_In.this, "user created "+user.getEmail(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Sign_In.this, "user created " + user.getEmail(), Toast.LENGTH_SHORT).show();
                                     user.sendEmailVerification()
                                             .addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
@@ -133,7 +128,7 @@ public class Sign_In extends AppCompatActivity {
                                                     if (task.isSuccessful()) {
                                                         Log.d("verification", "Email sent.");
                                                         Toast.makeText(Sign_In.this, "verification email sent", Toast.LENGTH_SHORT).show();
-                                                        mAuth.getInstance().signOut();
+                                                        FirebaseAuth.getInstance().signOut();
 
                                                     }
                                                 }
@@ -167,17 +162,12 @@ public class Sign_In extends AppCompatActivity {
         //and take the user to profile activity
 
 
-
         //uncomment this if we want to use just email and password verification
         if (mAuth.getCurrentUser() != null) {
-          finish();
+            finish();
             startActivity(new Intent(this, welcome.class));
 
         }
-
-
-
-
 
 
     }
@@ -234,9 +224,9 @@ public class Sign_In extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
-    public void gototwitter(View v){
+    public void gototwitter(View v) {
 
-        startActivity(new Intent( this,twiitter_login.class));
+        startActivity(new Intent(this, twiitter_login.class));
     }
 
     public void gotologin(View v) {
@@ -244,7 +234,10 @@ public class Sign_In extends AppCompatActivity {
         startActivity(next);
     }
 
-
+    public void gotoFb(View v) {
+        Intent next = new Intent(this, FacebbokLogin.class);
+        startActivity(next);
+    }
 
 
 }
