@@ -27,7 +27,7 @@ import java.util.Objects;
 
 import static android.provider.ContactsContract.Intents.Insert.EMAIL;
 
-public class FacebbokLogin extends AppCompatActivity {
+public class FacebookLogin extends AppCompatActivity {
     private TextView tvname;
     private FirebaseAuth mAuth;
     private CallbackManager callbackManager;
@@ -55,12 +55,12 @@ public class FacebbokLogin extends AppCompatActivity {
 
             @Override
             public void onCancel() {
-                Toast.makeText(FacebbokLogin.this, "FB Login Canceled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(FacebookLogin.this, "FB Login Canceled", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onError(FacebookException error) {
-                Toast.makeText(FacebbokLogin.this, "Fb Login Error " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(FacebookLogin.this, "Fb Login Error " + error.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "onError: msg:--" + error.getMessage());
             }
         });
@@ -79,7 +79,7 @@ public class FacebbokLogin extends AppCompatActivity {
                     assert firebaseUser != null;
                     updateUI(firebaseUser);
                 } else {
-                    Toast.makeText(FacebbokLogin.this, "Facebook Login Failed" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(FacebookLogin.this, "Facebook Login Failed" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });

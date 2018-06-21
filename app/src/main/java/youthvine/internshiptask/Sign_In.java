@@ -57,7 +57,7 @@ public class Sign_In extends AppCompatActivity {
         fbbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), FacebbokLogin.class));
+                startActivity(new Intent(getApplicationContext(), FacebookLogin.class));
             }
         });
         button = findViewById(R.id.googleBtn);
