@@ -234,9 +234,17 @@ public class Sign_In extends AppCompatActivity {
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
 
+    public void gototwitter(View v){
+
+        startActivity(new Intent( this,twiitter_login.class));
+    }
+
     public void gotologin(View v) {
         Intent next = new Intent(this, email_login.class);
         startActivity(next);
     }
+
+
+
 
 }
