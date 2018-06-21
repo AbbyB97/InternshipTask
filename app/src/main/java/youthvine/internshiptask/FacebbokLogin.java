@@ -80,6 +80,7 @@ public class FacebbokLogin extends AppCompatActivity {
                     updateUI(firebaseUser);
                 } else {
                     Toast.makeText(FacebbokLogin.this, "Facebook Login Failed" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onComplete: " + task.getException());
                 }
             }
         });
@@ -91,7 +92,7 @@ public class FacebbokLogin extends AppCompatActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }
