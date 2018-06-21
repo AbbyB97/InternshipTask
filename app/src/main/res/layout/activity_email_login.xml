@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    tools:context=".email_login"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/progressD2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="82dp"
+            android:visibility="invisible"
+
+            app:indicatorName="BallPulseIndicator"/>
+
+        <EditText
+            android:id="@+id/login_email"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="219dp"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="enter email"
+            android:inputType="textEmailAddress"/>
+
+        <EditText
+            android:id="@+id/login_password"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:hint="enter password"
+            android:inputType="textPassword"/>
+
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="204dp"
+            android:background="@drawable/x_custom_button"
+            android:fontFamily="monospace"
+            android:text="Login"
+            android:textSize="22sp"/>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="136dp"
+            android:fontFamily="monospace"
+            android:text="Please enter your credentials"
+            android:textColor="#ffff"
+            android:textSize="18sp"/>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

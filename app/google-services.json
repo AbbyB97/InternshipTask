@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "840386981030",
+    "firebase_url": "https://internship-task.firebaseio.com",
+    "project_id": "internship-task",
+    "storage_bucket": "internship-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840386981030:android:05456dd5cf86cdc5",
+        "android_client_info": {
+          "package_name": "youthvine.internshiptask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840386981030-b1fphgs4nho68qi267ma8emmlmkodah0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "youthvine.internshiptask",
+            "certificate_hash": "8fc6e24646097f5320e8989230d6fdafd840be39"
+          }
+        },
+        {
+          "client_id": "840386981030-nfmoqhi0iqh2le1pq34st3gpitkjeg0i.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "840386981030-nfmoqhi0iqh2le1pq34st3gpitkjeg0i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBU4qbw8Vx5QxFii3WSv_trfcId_EPMWLk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "840386981030-nfmoqhi0iqh2le1pq34st3gpitkjeg0i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
