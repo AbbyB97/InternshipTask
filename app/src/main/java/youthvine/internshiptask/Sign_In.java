@@ -72,8 +72,6 @@ public class Sign_In extends AppCompatActivity {
                 signIn();
             }
         });
-
-
         findViewById(R.id.reg_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,13 +137,10 @@ public class Sign_In extends AppCompatActivity {
                                                         Log.d("verification", "Email sent.");
                                                         Toast.makeText(Sign_In.this, "verification email sent", Toast.LENGTH_SHORT).show();
                                                         FirebaseAuth.getInstance().signOut();
-
                                                     }
                                                 }
                                             });
                                     av.hide();
-
-
                                 } else {
                                     // If sign in fails, display a message to the user.
                                     Log.w("no usercreated", "createUserWithEmail:failure", task.getException());
@@ -153,11 +148,9 @@ public class Sign_In extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
                                     av.hide();
                                 }
-
                                 // ...
                             }
                         });
-
             }
         });
     }
@@ -171,15 +164,11 @@ public class Sign_In extends AppCompatActivity {
         //we will close this activity
         //and take the user to profile activity
 
-
         //uncomment this if we want to use just email and password verification
         if (mAuth.getCurrentUser() != null) {
             finish();
             startActivity(new Intent(this, welcome.class));
-
         }
-
-
     }
 
     @Override
@@ -216,14 +205,11 @@ public class Sign_In extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(Sign_In.this, "user is now signed in", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(Sign_In.this, welcome.class));
-
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("Auth fail LOG", "signInWithCredential:failure", task.getException());
                             Toast.makeText(Sign_In.this, "Authentication Failed", Toast.LENGTH_SHORT).show();
-
                         }
-
                         // ...
                     }
                 });
