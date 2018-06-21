@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -27,6 +28,7 @@ import com.wang.avi.AVLoadingIndicatorView;
 
 public class Sign_In extends AppCompatActivity {
     SignInButton button;
+    Button fbbtn;
     private final static int RC_SIGN_IN = 2;
     FirebaseAuth mAuth;
     GoogleSignInClient mGoogleSignInClient;
@@ -50,6 +52,14 @@ public class Sign_In extends AppCompatActivity {
 
         // Build a GoogleSignInClient with the options specified by gso.
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        fbbtn = findViewById(R.id.button3);
+        fbbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), FacebbokLogin.class));
+            }
+        });
         button = findViewById(R.id.googleBtn);
         reg_email = findViewById(R.id.reg_email);
         reg_password = findViewById(R.id.reg_password);
@@ -231,11 +241,6 @@ public class Sign_In extends AppCompatActivity {
 
     public void gotologin(View v) {
         Intent next = new Intent(this, email_login.class);
-        startActivity(next);
-    }
-
-    public void gotoFb(View v) {
-        Intent next = new Intent(this, FacebbokLogin.class);
         startActivity(next);
     }
 
