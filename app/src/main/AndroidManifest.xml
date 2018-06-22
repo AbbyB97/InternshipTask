@@ -21,7 +21,7 @@
         <activity android:name=".Sign_In"></activity>
         <activity android:name=".welcome"></activity>
         <activity android:name=".email_login"></activity>
-        <activity android:name=".FacebbokLogin"></activity>
+        <activity android:name=".FacebookLogin"></activity>
         <activity android:name=".twiitter_login"></activity>
         <activity android:name=".social_welcomescreem"></activity>
 
