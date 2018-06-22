@@ -42,7 +42,7 @@ public class FacebookLogin extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         tvname = findViewById(R.id.nameTV);
-        LoginButton fbbtn = findViewById(R.id.login_button);
+        LoginButton fbbtn = findViewById(R.id.button_twitter_login);
 
         callbackManager = CallbackManager.Factory.create();
         fbbtn.setReadPermissions(Arrays.asList(EMAIL));
