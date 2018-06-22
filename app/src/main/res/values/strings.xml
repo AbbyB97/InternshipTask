@@ -1,6 +1,9 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/tools">
     <string name="app_name">Internship Task</string>
     <!--facebook key setup-->
     <string name="facebook_app_id">207921990036937</string>
     <string name="fb_login_protocol_scheme">fb207921990036937</string>
+
+    <string name="com.twitter.sdk.android.CONSUMER_KEY">Py3G1sgFgXTJE2H7AB7eB8XDj</string>
+    <string name="com.twitter.sdk.android.CONSUMER_SECRET">MIuDqxmff4eLo0nBu3RVgWPylgOxomcJ84ZcDSRxBbnz29GhQu</string>
 </resources>
