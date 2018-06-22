@@ -8,6 +8,7 @@ import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -22,10 +23,7 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
 import java.util.Objects;
-
-import static android.provider.ContactsContract.Intents.Insert.EMAIL;
 
 public class FacebookLogin extends AppCompatActivity {
     private TextView tvname;
@@ -39,23 +37,26 @@ public class FacebookLogin extends AppCompatActivity {
         setContentView(R.layout.facebbok_login);
 
         FacebookSdk.sdkInitialize(getApplicationContext());
+
         mAuth = FirebaseAuth.getInstance();
 
         tvname = findViewById(R.id.nameTV);
         LoginButton fbbtn = findViewById(R.id.login_button);
 
         callbackManager = CallbackManager.Factory.create();
-        fbbtn.setReadPermissions(Arrays.asList(EMAIL));
+        fbbtn.setReadPermissions("email");
         fbbtn.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 //successful access token generation
-                handleaccessToken(loginResult);
+                Log.d(TAG, "facebook:onSuccess:" + loginResult.getAccessToken());
+                handleaccessToken(loginResult.getAccessToken());
             }
 
             @Override
             public void onCancel() {
                 Toast.makeText(FacebookLogin.this, "FB Login Canceled", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "onCancel: login canceled");
             }
 
             @Override
@@ -67,8 +68,8 @@ public class FacebookLogin extends AppCompatActivity {
 
     }
 
-    public void handleaccessToken(LoginResult lr) {
-        AuthCredential authCredential = FacebookAuthProvider.getCredential(lr.getAccessToken().toString());
+    public void handleaccessToken(AccessToken lr) {
+        AuthCredential authCredential = FacebookAuthProvider.getCredential(lr.getToken());
         mAuth.signInWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -76,17 +77,20 @@ public class FacebookLogin extends AppCompatActivity {
                 if (task.isSuccessful()) {
 
                     FirebaseUser firebaseUser = mAuth.getCurrentUser();
-                    assert firebaseUser != null;
                     updateUI(firebaseUser);
+                    Log.d(TAG, "onComplete: signiInwith Credential is Successful");
+                    startActivity(new Intent(FacebookLogin.this, welcome.class));
                 } else {
                     Toast.makeText(FacebookLogin.this, "Facebook Login Failed" + Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                    Log.d(TAG, "onComplete: signiInwith Credential is Failed" + task.getException().getMessage());
                 }
             }
         });
     }
 
     private void updateUI(FirebaseUser firebaseUser) {
-        tvname.setText(firebaseUser.getEmail());
+        tvname.setText(firebaseUser.getDisplayName());
+        Log.d(TAG, "updateUI: Firebase UserData Data" + firebaseUser.getDisplayName());
     }
 
     @Override
